@@ -2,7 +2,6 @@ package org.repoClone
 
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import kotlin.system.exitProcess
 
 fun request(usr: String): String{
   val client = OkHttpClient()
@@ -22,8 +21,8 @@ fun main() {
   for (i in result.split(",")) {
     if (i.contains("clone_url")){
       val temp = i.split("https")[1].replace("\"","")
-      val compileIt = listOf("git", "clone", "https${temp}")
-      ProcessBuilder(compileIt).redirectError(ProcessBuilder.Redirect.INHERIT).start().waitFor()
+      val run = listOf("git", "clone", "https${temp}")
+      ProcessBuilder(run).redirectError(ProcessBuilder.Redirect.INHERIT).start().waitFor()
     }
   }
 }
