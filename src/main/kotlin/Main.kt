@@ -16,8 +16,9 @@ fun request(usr: String): String{
 
 
 fun main() {
-  val result = request("g3th")
-  val dir = "${System.getProperty("user.home")}/Desktop/text"
+  print("Enter user name: ")
+  val userName = readln()
+  val result = request(userName)
   for (i in result.split(",")) {
     if (i.contains("clone_url")){
       val temp = i.split("https")[1].replace("\"","")
